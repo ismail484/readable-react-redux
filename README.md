@@ -32,10 +32,11 @@
    - Create React App : run `npm install -g create-react-app`
    - React Regular Expression : run `npm install --save escape-string-regexp`
    - React Router : run `npm install --save react-router-dom`
-   - React Rating : run `npm install --save react-star-rating-component`
    - React Dropdown` npm install react-dropdown --save`
    - React Textarea `npm install react-textarea`
-   - React Texz Input `npm i react-text-input`
+   - React Text Input `npm i react-text-input`
+   - React upvote `npm install react-vote --save`
+
 # How to Run Projectot 
    1.  Download all Project files
    2.  Run `yarn install` [yarn](https://yarnpkg.com/en/) is preferred package for ReactJs or `npm install` to install all required dependancies &packages .

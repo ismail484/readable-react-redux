@@ -64,3 +64,4 @@
    10.[REST API Request](https://facebook.github.io/react-native/releases/0.33/docs/network.html).
    11.[Redux bindActionCreators](http://redux.js.org/docs/api/bindActionCreators.html).
    12.[Object Assign method](http://redux.js.org/docs/api/bindActionCreators.html).
+   13.[React This Props Children](https://learn.co/lessons/react-this-props-children)

@@ -61,4 +61,6 @@
    7. [Using a function in `setState` instead of an object](https://medium.com/@shopsifter/using-a-function-in-setstate-instead-of-an-object-1f5cfd6e55d1)
    8. [Eslint Rules](http://eslint.org/)
    9. [Heroku Cloud](https://devcenter.heroku.com/) .
-   10.[REST API Request](https://facebook.github.io/react-native/releases/0.33/docs/network.html)
+   10.[REST API Request](https://facebook.github.io/react-native/releases/0.33/docs/network.html).
+   11.[Redux bindActionCreators](http://redux.js.org/docs/api/bindActionCreators.html).
+   12.[Object Assign method](http://redux.js.org/docs/api/bindActionCreators.html).

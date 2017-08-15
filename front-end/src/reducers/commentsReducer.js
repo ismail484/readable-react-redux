@@ -39,69 +39,39 @@ import {
 
 export default function comments (state = initialState.initialCommentState, action) {
 
-  const { id, parentId,timestamp,body,author,voteScore,deleted,parentDeleted } = action
- 
-    //new state
-  switch (action.type) {
-    case ADD_COMMENT :
-      return {
-        //return the same state by using object spread syntax
-        //but modify specific day
-        ...state,
-        [id]: {
-           //at the same state of the day the same state but
-          ...state[id],
-          //name of specific recipe
-          [parentId]: parentId.label,
-          [timestamp]: timestamp.label,
-          [body]:body.label,
-          [author]: author.label,
-          [voteScore]: voteScore.label,
-          [deleted]: false,
-          [parentDeleted]:false
-        }
-      }
+  //const { comments,comment,id, parentId,timestamp,body,author,voteScore,deleted,parentDeleted } = action
 
-      case EDIT_COMMENT :
-      return {
-        //return the same state by using object spread syntax
-        //but modify specific day
-        ...state,
-        [id]: {
-           //at the same state of the day the same state but
-          ...state[id],
-          //name of specific recipe
-          [parentId]: parentId.label,
-          [timestamp]: timestamp.label,
-          [body]:body.label,
-          [author]: author.label,
-          [voteScore]: voteScore.label,
-          [deleted]: false,
-          [parentDeleted]:false
-        }
-      }
+switch (action.type) {
+
+    case LOAD_COMMENTS :
+         
+          return Object.assign([], state, action.comments)
+        
+    case ADD_COMMENT :
+    
+        this.context.history.push(`/posts/${action.post.id}/${action.comment.id}`)
+      return [
+        ...state.filter(comment => comment.id !== action.comment.id),
+        Object.assign({}, action.comment)
+      ]
+         
+ case EDIT_COMMENT :
+      return [
+        ...state.filter(comment => comment.id !== action.comment.id),
+        Object.assign({}, action.comment)
+      ]
 
 
 case DELETE_COMMENT :
-      return {
-        //return the same state by using object spread syntax
-        //but modify specific day
-        ...state,
-        [id]: {
-           //at the same state of the day the same state but
-          ...state[id],
-          //name of specific recipe
-          [parentId]:null,
-          [timestamp]: null,
-          [body]:null,
-          [author]: null,
-          [voteScore]: null,
-          [deleted]: true,
-          [parentDeleted]:true
-        }
-      }
+      const newState = Object.assign([], state);
+      const indexOfPostToDelete = state.findIndex(comment => {return comment.id == action.comment.id})
+      newState.splice(indexOfPostToDelete, 1);
+      this.context.history.push({pathname:'/posts/${action.post.id}'})
+      return newState;
 default :
       return state
+
+    
   }
 }
 

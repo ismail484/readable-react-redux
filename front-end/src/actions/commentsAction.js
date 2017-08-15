@@ -18,14 +18,15 @@ export function loadCommentsSuccess (comments) {
 export function createCommentSuccess (comment) {
   return {
     type: ADD_COMMENT,
-    comment
+    comment,
+    
   }
 }
 
 export function updateCommentSuccess (comment) {
   return {
     type: ADD_COMMENT,
-    comment
+    comment,
   }
 }
 

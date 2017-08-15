@@ -87,7 +87,7 @@ toggleEdit() {
 
 PostDetails.propTypes = {
   post: PropTypes.object.isRequired,
- // catHobbies: PropTypes.array.isRequired,
+
   actions: PropTypes.object.isRequired
 };
 

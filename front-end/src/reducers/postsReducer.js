@@ -73,7 +73,7 @@ export default function posts (state = initialState.initialPostState ,action){
         
     case ADD_POST :
     
-       // history.push(`/posts/${action.post.id}`)
+        this.context.history.push(`/posts/${action.post.id}`)
       return [
         ...state.filter(post => post.id !== action.post.id),
         Object.assign({}, action.post)
@@ -90,7 +90,7 @@ case DELETE_POST :
       const newState = Object.assign([], state);
       const indexOfPostToDelete = state.findIndex(post => {return post.id == action.post.id})
       newState.splice(indexOfPostToDelete, 1);
-    // history.push({pathname:'/posts'});
+      this.context.history.push({pathname:'/posts'})
       return newState;
 default :
       return state

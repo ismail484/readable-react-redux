@@ -33,7 +33,7 @@ export function updatePostSuccess (post) {
 export function deletePostSuccess (post) {
   return {
     type: DELETE_POST,
-   post,
+    post,
   }
 }
 

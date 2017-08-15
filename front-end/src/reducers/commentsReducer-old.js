@@ -40,6 +40,9 @@ export default function comments (state = initialCommentState, action) {
 
   const { id, parentId,timestamp,body,author,voteScore,deleted,parentDeleted } = action
  
+
+
+  
     //new state
   switch (action.type) {
     case ADD_COMMENT :

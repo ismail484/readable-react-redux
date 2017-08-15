@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom'
 import {PropTypes} from 'react'
 //import PostForm from './PostForm'
 //import CommentForm from './CommentForm'
+import Header from './common/Header'
 
 class App extends Component {
   
@@ -25,10 +26,10 @@ class App extends Component {
          <h1>Readable <Link to={'/posts/new'} className="btn btn-primary">+ Post</Link></h1>  
         <div className="col-md-4">
         </div>
-        <div className="col-md-8">
-          {this.props.children}
-          
-        </div>
+         <div className="container-fluid">
+        <Header />
+        {this.props.children}
+      </div>
       </div>  
   </div>
 

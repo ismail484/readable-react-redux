@@ -11,7 +11,7 @@ class NewPostPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: {title: '', author: '',body: '',timeStamp:'', category: '',voteScore:'', deleted : ''},
+      post: {id:'',title: '', author: '',body: '',timeStamp:Date, category: '',voteScore:'', deleted : '',comments_ids: []},
       saving: false
     };
     this.redirect = this.redirect.bind(this);
@@ -21,16 +21,17 @@ class NewPostPage extends React.Component {
 
   updatePostState(event) {
     const field = event.target.name;
-    const post = this.state.cat;
+    const post = this.state.post;
     post[field] = event.target.value;
     return this.setState({post: post});
   }
-    static contextTypes = { router: React.PropTypes.object }
+   // static contextTypes = { router: React.PropTypes.object }
 
   redirect(post) {
-    //browserHistory.push(`/cats/${cat.id}`);
-    this.context.router.transitionTo(`/posts/${post.id}`)
-    //this.context.history.push('/home')
+    
+    this.context.history.push(`/posts/${post.id}`)
+  //  this.context.router.transitionTo(`/posts/${post.id}`)
+    
 
 
   }
@@ -38,9 +39,9 @@ class NewPostPage extends React.Component {
   savePost(event) {
     event.preventDefault();
     this.props.actions.createPost(this.state.post)
-    // .then((cat) => {
-    //   this.redirect(cat);
-    // });
+   .then((post) => {
+       this.redirect(post);
+     });
 
   }
   
@@ -61,9 +62,9 @@ class NewPostPage extends React.Component {
 
 
 
-NewPostPage.propTypes = {
-  actions: PropTypes.object.isRequired
-};
+// NewPostPage.propTypes = {
+//   actions: PropTypes.object.isRequired
+// };
 
 
 

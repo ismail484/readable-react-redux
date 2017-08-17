@@ -9,15 +9,15 @@ class PostsPage extends React.Component {
   
   render() {
       const posts = this.props.posts
-    console.log('Props',this.props)
+    console.log('children are',this.props)
     return (
       <div className="col-md-12">
         <h1>Posts <Link to={'/posts/new'} className="btn btn-primary">+ Post</Link></h1>
         <div className="col-md-4">
-          <PostsList />
+          <PostsList posts={posts}/>
         </div>
         <div className="col-md-8">
-          {this.props.children}
+          {this.props.children }
         </div>
       </div>
     );
@@ -25,10 +25,10 @@ class PostsPage extends React.Component {
 }
 
 
-PostsPage.propTypes = {
-  posts: PropTypes.array.isRequired,
-  children: PropTypes.object
-};
+// PostsPage.propTypes = {
+//   posts: PropTypes.array.isRequired,
+//   children: PropTypes.object
+// };
 
 
 function mapStateToProps(state, ownProps) {

@@ -11,7 +11,7 @@ class NewPostPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: {id:'',title: '', author: '',body: '',timeStamp:Date, category: '',voteScore:'', deleted : '',comments_ids: []},
+      post: {id:'',title: '', author: '',body: '',timeStamp: new Date(), category: '',voteScore:'', deleted : ''},
       saving: false
     };
     this.redirect = this.redirect.bind(this);

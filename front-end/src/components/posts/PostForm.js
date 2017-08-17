@@ -5,11 +5,20 @@ import Dropdown from 'react-dropdown'
 
 class  PostForm extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = { category: 'udacity'}
+  }
+
+  handleChange (category) {
+    this.setState({category})
+    console.log(category)
+  }
   render (){
   const categories = [
   { value: 'react', label: 'React' },
-  { value: 'redux', label: 'Redux' },
-  { value: 'udacity', label: 'Udacity' },]
+  { value: 'redux', label: 'Redux', },
+  { defaultOption: 'udacity', label: 'Udacity' },]
 
   return (
     <div className="post" >
@@ -25,6 +34,7 @@ class  PostForm extends React.Component {
           <TextInput
             name="title"
             label="Title"
+            placeholder="your post's title.."
             value={this.props.post.title}
             onChange={this.props.onChange}/>
            
@@ -32,8 +42,8 @@ class  PostForm extends React.Component {
           <Dropdown 
             options={categories} 
             //onChange={this._onSelect}
-            onChange={this.props.onChange}
-            value='redux' 
+            onChange={this.handleChange.bind(this)}
+            value={this.state.category} 
             placeholder="Select an option"
             label="Categories" />
 
@@ -58,11 +68,14 @@ class  PostForm extends React.Component {
 }
 }
 
+
+
+
 PostForm.propTypes = {
   post: React.PropTypes.object.isRequired,
   onSave: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
-  saving: React.PropTypes.bool
+  saving: React.PropTypes.bool,
 };
 
 

@@ -12,6 +12,10 @@ import {BrowserRouter} from 'react-router-dom'
 import configureStore from './store/configureStore'
 import routes from './routes'
 import createBrowserHistory from 'history/createBrowserHistory'
+import { Route } from 'react-router'
+import PostsPage from './components/posts/PostsPage'
+import NewPostPage from './components/posts/NewPostPage'
+import PostDetails from './components/posts/PostDetails'
 //import {hashHistory} from 'react-router'
 
 
@@ -35,7 +39,7 @@ store.dispatch(loadComments());
 ReactDOM.render(
   <BrowserRouter  history={history}>
    <Provider store={store}>
-     <App >{routes} </App >
+     <App >{routes}</App >
    </Provider>
   </BrowserRouter>,
   document.getElementById('root')

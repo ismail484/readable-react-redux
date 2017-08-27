@@ -4,11 +4,11 @@ import FieldInput from '../common/FieldInput';
 import SelectInput from '../common/SelectInput';
 
 
-export const PostForm = ({ handleSubmit, pristine, reset, submitting, heading, authors, handleSave, handleCancel }) => {
-    const categories = [
-  { value: 'react', label: 'React' },
-  { value: 'redux', label: 'Redux', },
-  { defaultOption: 'udacity', label: 'Udacity' },]
+export const PostForm = ({ handleSubmit, pristine, reset, submitting, heading,categories, handleSave, handleCancel }) => {
+//     const categories = [
+//   { value: 'react', label: 'React' },
+//   { value: 'redux', label: 'Redux', },
+//   { defaultOption: 'udacity', label: 'Udacity' },]
     return (
         <form onSubmit={handleSubmit(handleSave)}>
             <h1>{heading}</h1>
@@ -90,7 +90,7 @@ PostForm.propTypes = {
     reset: PropTypes.func.isRequired,
     submitting: PropTypes.bool.isRequired,
     heading: PropTypes.string.isRequired,
-   // authors: PropTypes.array.isRequired,
+    categories: PropTypes.array.isRequired,
     handleSave: PropTypes.func.isRequired,
     handleCancel: PropTypes.func.isRequired
 };

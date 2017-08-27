@@ -67,10 +67,22 @@ class PostList extends React.Component {
                 >
                     Title
                 </TableHeaderColumn>
+                
+
+            <TableHeaderColumn 
+                    dataField="timestamp"
+                   dataFormat={titleFormatter} 
+                    dataSort={true}
+                    caretRender={getCaret}
+                    filter={{type: 'TextFilter', delay: 0 }}
+                    columnTitle
+                >
+                    TimeStamp
+                </TableHeaderColumn>
 
                 <TableHeaderColumn 
                     dataField="author"
-                    dataFormat={titleFormatter} 
+                   // dataFormat={titleFormatter} 
                     dataSort={true}
                     caretRender={getCaret}
                     filter={{type: 'TextFilter', delay: 0 }}

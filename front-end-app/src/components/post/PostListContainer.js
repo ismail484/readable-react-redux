@@ -22,7 +22,7 @@ export class PostListContainer extends React.Component {
 
 
     componentDidMount() {
-        this.props.action.getPostAction()
+        this.props.action.getPostsAction()
             .catch(error => {
                 toastr.error(error);
             });
@@ -73,6 +73,7 @@ export class PostListContainer extends React.Component {
         const { posts } = this.props;
 
         console.log ('posts are',posts)
+        console.log ('action are',this.props.action)
         
         if (!posts) {
             return (

@@ -4,6 +4,10 @@ export default {
     commentsReducer: {
         comments: []
     },
+    categoriesReducer: {
+        categories: []
+    },
+
 
     postsReducer: {
         posts: []

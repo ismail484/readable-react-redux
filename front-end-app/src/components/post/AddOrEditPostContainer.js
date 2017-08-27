@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
-import * as PostAction from '../../action/PostAction';
-//import * as authorAction from '../../action/AuthorAction';
+import * as postAction from '../../action/PostAction';
+import * as categoryAction from '../../action/CategoryAction';
 import PostForm from './PostForm'; // eslint-disable-line import/no-named-as-default
-//import { authorsFormattedForDropdown } from '../../selectors/selectors'; // eslint-disable-line import/no-named-as-default
+import { categoriesFormattedForDropdown } from '../../selectors/selectors'; // eslint-disable-line import/no-named-as-default
 
 
 export class AddOrEditPostContainer extends React.Component {
@@ -25,10 +25,10 @@ export class AddOrEditPostContainer extends React.Component {
                 toastr.error(error);
             });
 
-        // this.props.action.getAuthorsAction()
-        //     .catch(error => {
-        //         toastr.error(error);
-        //     });
+        this.props.action.getCategoriesAction()
+            .catch(error => {
+                toastr.error(error);
+            });
     }
 
 
@@ -37,10 +37,10 @@ export class AddOrEditPostContainer extends React.Component {
         const post = {
             id: values.id,
             title: values.title,
-            watchHref: values.watchHref,
-            authorId: values.authorId,
-            length: values.length,
-            category: values.category
+            timestamp: values.timestamp,
+            author: values.author,
+            category: values.category,
+            body: values.body,       
         };
 
         this.props.action.savePostAction(post)
@@ -63,7 +63,9 @@ export class AddOrEditPostContainer extends React.Component {
 
     render() {
         const { initialValues } = this.props;
-        const heading = initialValues && initialValues.id ? 'Edit Post' : 'Add Post';
+        const heading = initialValues && initialValues.id ? 'Edit' : 'Add';
+        
+        console.log('categories are' ,this.props.categories)
 
         return (
             <div className="container">
@@ -87,11 +89,11 @@ const mapStateToProps = (state, ownProps) => {
     if (postId && state.selectedPostReducer.post && postId === state.selectedPostReducer.post.id) {
         return {
             initialValues: state.selectedPostReducer.post,
-           // authors: authorsFormattedForDropdown(state.authorReducer.authors)
+            categories: categoriesFormattedForDropdown(state.categoriesReducer.categories)
         };
     } else {
         return {
-          //  authors: authorsFormattedForDropdown(state.authorReducer.authors)
+          categories: categoriesFormattedForDropdown(state.categoriesReducer.categories)
         };
     }
 };
@@ -99,8 +101,8 @@ const mapStateToProps = (state, ownProps) => {
 
 
 const mapDispatchToProps = dispatch => ({
-      action: bindActionCreators({ ...PostAction }, dispatch)
-    // action: bindActionCreators({ ...authorAction, ...courseAction }, dispatch)
+    //  action: bindActionCreators({ ...postAction }, dispatch)
+     action: bindActionCreators({ ...categoryAction, ...postAction }, dispatch)
 });
 
 
@@ -108,7 +110,7 @@ const mapDispatchToProps = dispatch => ({
 AddOrEditPostContainer.propTypes = {
     action: PropTypes.object.isRequired,
     history: PropTypes.object,
-  //  authors: PropTypes.array,
+    categories: PropTypes.array,
     initialValues: PropTypes.object,
     match: PropTypes.object.isRequired
 };

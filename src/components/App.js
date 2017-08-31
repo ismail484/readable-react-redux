@@ -7,7 +7,7 @@ import AddOrEditPostContainer from './post/AddOrEditPostContainer'; // eslint-di
 import About from './About';
 import createBrowserHistory from 'history/createBrowserHistory';
 import HeaderNavContainer from './landing/HeaderNavContainer'; // eslint-disable-line import/no-named-as-default
-
+import CommentListContainer from './comment/CommentListContainer';
 
 
 const history = createBrowserHistory();
@@ -26,6 +26,7 @@ const App = () => {
                         <Route path="/posts" component={PostListContainer} />
                         <Route exact path="/post" component={AddOrEditPostContainer} />
                         <Route path="/post/:id" component={AddOrEditPostContainer} />
+                        <Route path="/post/:id/comments" component={CommentListContainer} />
                         <Route path="/about" component={About} />
                         <Route component={PageNotFound} />
                     </Switch>

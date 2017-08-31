@@ -24,7 +24,8 @@ const getCaret = direction => {
 
 
 const titleFormatter = (cell, row) => {
-  return `<a href=${row.watchHref} target="_blank">${cell}</a>`;
+    
+  return `<a href=/posts/${row.id}/comments target="_blank">${cell}</a>`;
 };
 
 

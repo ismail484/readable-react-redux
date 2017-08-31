@@ -3,29 +3,28 @@ import delay from './delay';
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
-const posts = [
+const comments = [
     {
-    id: '8xf0y6ziyjabvozdd253nd',
-    timestamp: 1467166872634,
-    title: 'Udacity is the best place to learn React',
-    body: 'Everyone says so after all.',
+    id: '894tuq4ut84ut8v4t8wun89g',
+    parentId: "8xf0y6ziyjabvozdd253nd",
+    timestamp: 1468166872634,
+    body: 'Hi there! I am a COMMENT.',
     author: 'thingtwo',
-    category: 'react',
-   // authorId: "cory-house",
-   // voteScore: 6,
-    //deleted: false 
+    voteScore: 6,
+    deleted: false,
+    parentDeleted: false 
   },
-  {
-    id: '6ni6ok3ym7mf1p33lnez',
-    timestamp: 1468479767190,
-    title: 'Learn Redux in 10 minutes!',
-    body: 'Just kidding. It takes more than 10 minutes to learn technology.',
+   {
+    id: '8tu4bsun805n8un48ve89',
+    parentId: "8xf0y6ziyjabvozdd253nd",
+    timestamp: 1469479767190,
+    body: 'Comments. Are. Cool.',
     author: 'thingone',
-    category: 'redux',
-  //  authorId: "cory-house",
-   // voteScore: -5,
-   // deleted: false
+    voteScore: -5,
+    deleted: false,
+    parentDeleted: false
   }
+
 ];
 
 function replaceAll(str, find, replace) {
@@ -58,14 +57,12 @@ class PostApi {
 
                 if (post.id) {
                     const existingPostIndex = posts.findIndex(p => p.id === post.id)
-                    //post.watchHref = `/posts/${post.id}/comments`
                     posts.splice(existingPostIndex, 1, post)
                 } else {
                     //Just simulating creation here.
                     //The server would generate ids and watchHref's for new posts in a real app.
                     //Cloning so copy returned is passed by value rather than by reference.
                     post.id = generateId(post)
-                   // post.watchHref = `/posts/${post.id}/comments`;
                     posts.push(post);
                 }
 

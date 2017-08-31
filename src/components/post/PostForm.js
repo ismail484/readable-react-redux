@@ -3,6 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import FieldInput from '../common/FieldInput';
 import DatePicker from 'react-datepicker';
 import SelectInput from '../common/SelectInput';
+import moment from 'moment'
+import {OverlayTrigger, Tooltip} from 'react-bootstrap'
+import DateTimeField from '../common/DateTimeField'
 
 
 export const PostForm = ({ handleSubmit, pristine, reset, submitting, heading, categories, handleSave, handleCancel }) => {
@@ -42,11 +45,12 @@ export const PostForm = ({ handleSubmit, pristine, reset, submitting, heading, c
                 component={FieldInput}
             />
              <Field
-                name="timestamp"
-                component = {DatePicker}
-                dateFormat="DD.MM.YYYY" 
-                showYearDropdown="{true}"
-                />
+                 name='startDate'
+                 label='Event Start Date/Time'
+                 component={DateTimeField}
+            />
+          
+
 
             <div>
                 <button type="submit" disabled={submitting} className="btn btn-primary"><i className="fa fa-paper-plane-o" aria-hidden="true" /> Submit</button>

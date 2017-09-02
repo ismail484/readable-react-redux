@@ -44,11 +44,20 @@ export const PostForm = ({ handleSubmit, pristine, reset, submitting, heading, c
                 placeholder="body of post "
                 component={FieldInput}
             />
-             <Field
-                 name='startDate'
+
+             {/* <Field
+                type="text"
+                name="timestamp"
+                label="Time Stamp"
+                placeholder="body of post "
+                component={new Date() }
+            /> */}
+              <Field
+                 name='timestamp'
                  label='Event Start Date/Time'
                  component={DateTimeField}
-            />
+            /> 
+
           
 
 

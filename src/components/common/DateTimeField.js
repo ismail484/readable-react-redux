@@ -16,7 +16,7 @@ const DateTimeField = ({ tooltip, tooltipPlacement, disabled, input, label, plac
     }
     <DateTime
       name={input.name}
-      //value={input.value}
+      value={input.value}
       locale='en'
       dateFormat='MM/DD/YYYY'
       timeFormat='hh:mm A'

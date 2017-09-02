@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import * as postAction from '../../action/PostAction';
-import PostList from '../post/PostList';
+import CommentList from '../comment/CommentList';
 
 
 
@@ -119,7 +119,7 @@ export class CommentListContainer extends React.Component {
 
                 <div className="row">
                     <div className="col">
-                        <PostList posts={posts} handleRowSelect={this.handleRowSelect}/>
+                        <CommentList posts={posts} handleRowSelect={this.handleRowSelect}/>
                     </div>
                 </div>
             </div>

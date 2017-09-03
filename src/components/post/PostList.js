@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import moment from 'moment'
+
 
 
 
@@ -28,7 +30,8 @@ const titleFormatter = (cell, row) => {
   return `<a href=/posts/${row.id}/comments target="_blank">${cell}</a>`;
 };
 
-
+const dateFormatter=(cell, row)=>
+{ return cell ? moment(cell, "DD/MM/YYYY hh:mm:ss").format("DD/MM/YYYY") : ""; }
 
 class PostList extends React.Component {
 
@@ -94,7 +97,8 @@ class PostList extends React.Component {
 
                 <TableHeaderColumn 
                     dataField="timestamp"
-                    dataFormat={titleFormatter} 
+                    dataFormat={dateFormatter} 
+                    editable= {{ type: 'date' }} 
                     dataSort={true}
                     caretRender={getCaret}
                     filter={{type: 'TextFilter', delay: 0 }}

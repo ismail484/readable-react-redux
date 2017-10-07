@@ -1,17 +1,11 @@
 {
-  "name": "reactjs-crud-boilerplate",
-  "description": "ReactJS CRUD Boilerplate",
-  "version": "0.0.2",
-  "private": false,
-  "repository": "https://github.com/ariesmcrae/reactjs-crud-boilerplate.git",
-  "author": "Aries McRae <github@ariesmcrae.com>",
+ "name": "react-readable-app",
+ "description": "ReactJS Redux CRUD",
+  "repository": "https://github.com/ismail484/readable-react-redux.git",
+  "author": "Mohamed Ismail<http://mohamedcodesenjoyment.com/introduction/>",
   "license": "MIT",
-  "keywords": [
-    "Boilerplate",
-    "Starter Kit",
-    "Starter Project",
-    "Seed"
-  ],
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "font-awesome": "^4.7.0",
